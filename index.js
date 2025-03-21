@@ -4,8 +4,9 @@ const validOperations = {
   "/": "Division",
   "*": "Multiplication",
   "-": "Subtraction",
-  "+": "Addition"
-}
+  "+": "Addition",
+  "%": "Modulo",
+};
 
 function getOperator() {
   let operation = rs.question("What operation would you like to perform? ");
@@ -18,36 +19,40 @@ function getOperator() {
 }
 
 function getValidNumber(prompt) {
-  let number = rs.question(prompt)
+  let number = rs.question(prompt);
   if (isNaN(number)) {
-    console.log("This is not a number")
+    console.log("This is not a number");
     return getValidNumber(prompt);
   }
-  return Number(number);  
+  return Number(number);
+}
+
+function performCalcultaion(op, num1, num2) {
+  switch (op) {
+    case "/":
+      if (num2 === 0) {
+        return undefined;
+      }
+      return num1 / num2;
+    case "*":
+      return num1 * num2;
+    case "-":
+      return num1 - num2;
+    case "+":
+      return num1 + num2;
+    case "%":
+      return num1 % num2;
+    default:
+      return "Invalid Operation";
+  }
 }
 
 function calculate() {
   const op = getOperator();
-  const num1 = getValidNumber("Please enter the first number: ")
-  const num2 = getValidNumber("Please enter the second number: ")
-  switch(op) {
-    case "/":
-      if (num2 === 0) {
-        console.log("Undefined");
-        break;
-      }
-      console.log(`Result: ${num1 / num2}`)
-      break;
-    case "*":
-      console.log(`Result: ${num1 * num2}`)
-      break;
-    case "-":
-      console.log(`Result: ${num1 - num2}`)
-      break;
-    case "+":
-      console.log(`Result: ${num1 + num2}`)
-      break;
-  }
+  const num1 = getValidNumber("Please enter the first number: ");
+  const num2 = getValidNumber("Please enter the second number: ");
+  const result = performCalcultaion(op, num1, num2);
+  console.log(`The result is: ${result}`);
 }
 
 calculate();

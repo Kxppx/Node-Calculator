@@ -4,5 +4,21 @@
   },
   "scripts": {
     "pug": "node index.js"
-  }
+  },
+  "name": "node-calculator",
+  "version": "1.0.0",
+  "description": "\"# Node-Calculator\"",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kxppx/Node-Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kxppx/Node-Calculator/issues"
+  },
+  "homepage": "https://github.com/Kxppx/Node-Calculator#readme"
 }
